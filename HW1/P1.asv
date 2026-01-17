@@ -14,7 +14,7 @@ y = x + 1/x;
 e = y - 5;
 end
 
-% Find & print solution
+% Find answ
 x3 = 2;
 for i=1:10
     x1 = x3;

@@ -1,6 +1,5 @@
 % Problem #1
 clc
-
 % Graph
 x = (0.01:0.001:10)';
 y1 = x + 1 ./ x;
@@ -13,7 +12,6 @@ function [e] = Prob1(x)
 y = x + 1/x;
 e = y - 5;
 end
-
 % Find & print solution
 x3 = 2;
 for i=1:10

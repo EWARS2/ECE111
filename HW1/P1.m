@@ -4,7 +4,7 @@ clc
 x = (0.01:0.001:10)';
 y1 = x + 1 ./ x;
 y2 = 5 + (0 .* x);
-plot(x,y1,x,y2)
+plot(x,[y1,y2])
 ylim([0,10])
 grid
 

@@ -1,5 +1,4 @@
-% Problem #1
-clc
+clc % Problem #1
 % Graph
 x = (0.01:0.001:10)';
 y1 = x + 1 ./ x;
@@ -7,12 +6,11 @@ y2 = 5 + (0 .* x);
 plot(x,[y1,y2])
 ylim([0,10])
 grid
-
+% Find & print solution
 function [e] = Prob1(x)
 y = x + 1/x;
 e = y - 5;
 end
-% Find & print solution
 x3 = 2;
 for i=1:10
     x1 = x3;

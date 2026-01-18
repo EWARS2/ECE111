@@ -1,11 +1,11 @@
-clc % Problem #8
+clc % Problem #9
 rounds = 100000;
 Win = 0;
 Loss = 0;
 tic
 for n = 1:rounds
     iWin = 0;
-    while(abs(iWin) <= 3)
+    while(abs(iWin) <= 4)
         A = sum(ceil(20*rand(1,3)));
         B = sum(ceil(10*rand(1,5)));
         if (A > B)

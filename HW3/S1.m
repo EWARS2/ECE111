@@ -1,4 +1,4 @@
-clc, format compact % Polar to Rectangular Conversions
+clc, clear, format compact % Polar to Rectangular Conversions
 Pol2RectX = @(len, degree) len .* cosd(degree);
 Pol2RectY = @(len, degree) len .* sind(degree);
 A_X = Pol2RectX(7,85) + Pol2RectX(3,-22) + Pol2RectX(6,47) % Problem 1

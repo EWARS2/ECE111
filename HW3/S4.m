@@ -1,0 +1,18 @@
+clc, clear     % Robot Tip Position
+format compact % (Inverse Kinematics & fminseartch())
+function [x3, y3] = RRR(q1, q2, q3) % compute the joint positions
+[x0, y0] = deal(0);
+x1 = x0 + 2*cosd(q1);     y1 = y0 + 2*sind(q1);
+x2 = x1 + cosd(q1+q2);    y2 = y1 + sind(q1+q2);
+x3 = x2 + cosd(q1+q2+q3); y3 = y2 + sind(q1+q2+q3);
+plot([x0,x1,x2,x3],[y0,y1,y2,y3],'b.-');
+xlim([-4,4]); ylim([-1,4]);
+end
+function [J] = RRR_Cost(z) % Return distance from specified point
+[x0, y0] = deal(3,2); % Point
+[q1, q2, q3] = deal(z(1), z(2), z(3));
+[x3, y3] = RRR(q1, q2, q3);
+J = sqrt( (x3-x0)^2 + (y3-y0)^2 );
+end
+
+[Z,e] = fminsearch(@RRR_Cost,[10,20,30])

@@ -13,4 +13,4 @@ function [J] = RRR_Cost(z) % Return distance from specified point
 [x3, y3] = RRR(z(1), z(2), z(3));
 J = sqrt( (x3-x0)^2 + (y3-y0)^2 );
 end
-[Z,e] = fminsearch(@RRR_Cost,[10,20,30])
+[Z,e] = fminsearch(@RRR_Cost,[10,20,30]) % Problem 8

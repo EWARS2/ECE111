@@ -9,4 +9,4 @@ x3 = x2 + cosd(q1 + q2 + q3);
 y3 = y2 + sind(q1 + q2 + q3);
 disp('Tip Position'), disp([x3,y3])
 plot([x0,x1,x2,x3], [y0,y1,y2,y3],'b.-')
-xlim([-3,3]), ylim([0,4]), grid
+xlim([0,4]), ylim([0,3]), grid

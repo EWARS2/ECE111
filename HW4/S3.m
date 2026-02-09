@@ -1,7 +1,7 @@
 format compact; clear; clc % Fargo Temperatures
 % Place data in same directory as this script
 Data = readtable('4 Fargo_Weather_Monthly_Avg.txt', ...
-    'Delimiter', {' ', '\t'}, 'MultipleDelimsAsOne', true)
+    'Delimiter', {' ', '\t'}, 'MultipleDelimsAsOne', true);
 year = Data{:,1}; % Note the curly braces. Needed for tables.
 T = Data{:,14};
 B = [year.^2, year, year.^0]; % Problem 5a

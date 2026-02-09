@@ -6,8 +6,8 @@ Data = readtable('4 Temperature Deviation.txt', ...
     'VariableNamesLine', 6, 'NumHeaderLines', 7, ...
     'LeadingDelimitersRule', 'ignore')
 
-year = Data(:,1); % Problem 8
-dT = Data(:,2);
+year = Data{:,1}; % Problem 8
+dT = Data{:,2};
 B = [year, year.^0];
 A = inv(B'*B)*B'*dT % 8a
 
@@ -15,31 +15,21 @@ plot(year,dT,'b.-',year,B*A,'r')
 xlabel('year');
 ylabel('Degrees C')
 
-y = 2050;
-T2050 = [y, 1] * A
+temp = @(y) [y, 1] * A;
+T2045 = temp(2045) % 8bi
+T2075 = temp(2075) % 8bii
+roots(A - [0;6]) % 8c
 
-y = 2100;
-T2100 = [y, 1] * A
-
-roots(A - [0;6])
-
-
-% Problem 9
-y = Data(:,1);
-dT = Data(:,2);
-B = [y.^2, y, y.^0];
+B = [year.^2, year, year.^0]; % Problem 9
 format short e
-A = inv(B'*B)*B'*dT
+A = inv(B'*B)*B'*dT % 9a
 
-plot(y,dT,'b',y,B*A,'r')
+plot(year,dT,'b',year,B*A,'r')
 xlabel('year')
 ylabel('C');
 title('Global Temperature Deviations')
 
-y = 2050;
-[y^2 y 1]*A
-
-y = 2100;
-[y^2 y 1]*A
-
-roots(A - [0;0;6])
+temp = @(y) [y^2 y 1]*A;
+T2045 = temp(2045) % 9bi
+T2075 = temp(2075) % 9bii
+roots(A - [0;0;6]) % 9c

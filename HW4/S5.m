@@ -11,6 +11,7 @@ dT = Data{:,2};
 B = [year, year.^0];
 A = inv(B'*B)*B'*dT % 8a
 
+subplot(211)
 plot(year,dT,'b.-',year,B*A,'r')
 xlabel('year');
 ylabel('Degrees C')
@@ -24,6 +25,7 @@ B = [year.^2, year, year.^0]; % Problem 9
 format short e
 A = inv(B'*B)*B'*dT % 9a
 
+subplot(212)
 plot(year,dT,'b',year,B*A,'r')
 xlabel('year')
 ylabel('C');

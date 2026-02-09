@@ -7,6 +7,7 @@ Ice = Data{:,2};
 
 B = [year, year.^0]; % Problem 6a
 A = inv(B'*B)*B'*Ice
+
 subplot(211)
 plot(year,Ice,'b.-',year,B*A,'r')
 xlabel('year')
@@ -16,6 +17,7 @@ roots(A) % Problem 6b
 
 B = [year.^2, year, year.^0]; % Problem 7a
 A = inv(B'*B)*B'*Ice
+
 subplot(212)
 plot(year,Ice,'b',year,B*A,'r')
 xlabel('year');

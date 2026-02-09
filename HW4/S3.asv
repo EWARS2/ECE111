@@ -3,11 +3,24 @@ format compact; clear; clc % Fargo Temperatures
 filename = '4 Fargo_Weather_Monthly_Avg.txt';
 opts = detectImportOptions(filename);
 Data = readtable(filename, opts);
-Data = 
-year = Data(:,1);
-T = Data(:,14);
-B = [year.^2, year, year.^0];
+Data = Data(~all(isnan(Data{:,:}), 2), :); % Discard all instances of NaN
+year = Data{:,1}; % Note the curly braces. Needed for tables.
+T = Data{:,14};
+B = [year.^2, year, year.^0]; % Problem 5a
 A = inv(B'*B)*B'*T
 plot(year,T,'b',year,B*A,'r')
 xlabel('year');
 ylabel('Degrees F')
+
+Time = @(y) [y^2 y 1] * A;
+
+y = 1945;
+T0 = Time(1945)
+y = 2025;
+T1 = [y^2 y 1] * A
+
+
+dT = T1 - T0
+
+y = 2050;
+T2050 = [y^2 y 1] * A

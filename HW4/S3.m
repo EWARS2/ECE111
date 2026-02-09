@@ -6,7 +6,7 @@ Data = readtable(filename, opts);
 Data = Data(~all(isnan(Data{:,:}), 2), :); % Discard all instances of NaN
 year = Data{:,1}; % Note the curly braces. Needed for tables.
 T = Data{:,14};
-B = [year.^2, year, year.^0];
+B = [year.^2, year, year.^0]; % Problem 5a
 A = inv(B'*B)*B'*T
 plot(year,T,'b',year,B*A,'r')
 xlabel('year');

@@ -1,4 +1,4 @@
-format compact; format shortG; clear; clc % Solar Energy 1)
+format compact; format shortG; subplot; clear; clc % Solar Energy 1)
 Data = readtable('solar2025.csv'); % Data must be placed in same folder
 % Uncomment division to use roughly the same scaling as in examples
 MJ = rmmissing(Data{:,'AvgSolRad'});%/26.0463701299;

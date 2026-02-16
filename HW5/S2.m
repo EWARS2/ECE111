@@ -1,5 +1,6 @@
 format compact; format shortE; clear; clc % Wind Energy 5)
 Data = readtable('wind2023.csv'); % Data must be placed in same folder
+% The scaling seems to be different again; 2x the Example's
 Wind = rmmissing(Data{:,'AvgWindSpeedAt10M'});
 hr = (1:numel(Wind))'/24;
 subplot(221)
@@ -40,3 +41,7 @@ ylabel('kW');
 kWh = sum(kW) * 1
 Dollars = kWh * 0.11
 Pounds = kWh * 1.78
+
+% 8)
+Dollars_Per_Year = Dollars * 365/(numel(Wind)/24)
+Years = 5.85e6 / Dollars_Per_Year

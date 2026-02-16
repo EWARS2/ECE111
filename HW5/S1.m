@@ -1,12 +1,12 @@
-format compact; format shortG; clear; clc % Solar Energy
-Data = readtable('table2025.csv'); % Data must be placed in same folder
+format compact; format shortG; clear; clc % Solar Energy 1)
+Data = readtable('solar2025.csv'); % Data must be placed in same folder
 % Uncomment division to use roughly the same scaling as in examples
 MJ = rmmissing(Data{:,'AvgSolRad'});%/26.0463701299;
 hr = (1:numel(MJ))'/24;
 plot(hr,MJ)
 xlabel('Day');
 ylabel('MJ/m2');
-title('Fargo, ND Solar Radiation: March 2025')
+title('Fargo, ND Solar Radiation: March 2025');
 
 % 2)
 k = (54)*(0.89)*(1000)/3600*(0.215) % I can't replicate the example numbers

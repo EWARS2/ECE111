@@ -19,4 +19,4 @@ Pounds = kWh * 1.78
 % 4)
 Dollars_Per_Year = Dollars * 365/(numel(MJ)/24)
 Years = 8649 / Dollars_Per_Year
-% If these #s are accurate, yeah, solar *does* look pretty darn good
+% If these #s are accurate, yeah, solar looks *darned* good

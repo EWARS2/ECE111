@@ -44,4 +44,5 @@ Pounds = kWh * 1.78
 
 % 8)
 Dollars_Per_Year = Dollars * 365/(numel(Wind)/24)
+format shortG;
 Years = 5.85e6 / Dollars_Per_Year

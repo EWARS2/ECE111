@@ -1,7 +1,7 @@
 format compact; format shortE; clear; clc % Wind Energy 5)
-Data = readtable('wind2023.csv'); % Data must be placed in same folder
-% The scaling seems to be different again; 2x the Example's
-Wind = rmmissing(Data{:,'AvgWindSpeedAt10M'});
+Data = readtable('wind4-2023.csv'); % Data must be placed in same folder
+% Make sure data is in SI not US!
+Wind = rmmissing(Data{:,'AvgWindSpeed'});
 hr = (1:numel(Wind))'/24;
 subplot(221)
 plot(hr,Wind)

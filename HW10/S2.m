@@ -1,5 +1,4 @@
-format compact; format shortG; clear; clf; clc;
-% 1-Stage RC Filter
+format compact; format shortG; clear; clf; clc; % 1-Stage RC Filter
 V0 = 10;
 V1 = 0;
 dt = 0.01;

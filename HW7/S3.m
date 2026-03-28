@@ -3,7 +3,7 @@ clear; clf; clc;               % with Numerical Integration
 
 g = -1.37;
 x = 0; y = 3;
-dx = 1; dy = 1; % dx = 100/73 to hit x = 10 (Default: 1)
+dx = 100/73; dy = 1; % dx = 100/73 to hit x = 10 (Default: 1)
 t = 0; dt = 0.05;
 Bounce = 0;
 while(Bounce < 2)

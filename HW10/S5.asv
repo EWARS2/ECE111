@@ -1,9 +1,21 @@
-format compact; format shortG; clear; clf; clc; % 10-Stage RC Filter
-V = zeros(10,1); dV = zeros(10,1);
-V0 = 10;
-dt = 0.002;
-t = 0; y = [];
+format compact; format shortG; clear; clc;
+% Natural Response: Eigenvectors and Eigenvalues
 a = 25; b = 52.5; % Multipliers in equations
+A = zeros(10,10);
+for i=1:9
+    A(i,i) = -b;
+    A(i+1,i) = a;
+    A(i,i+1) = a;
+end
+A(10,10) = -27.5;
+[M,V] = eig(A)
+
+V = M(:,1);
+dV = zeros(10,1);
+V0 = 0;
+dt = 0.002;
+t = 0;
+
 while(t < 20)
     dV(1) = a*V0 - b*V(1) + a*V(2); % Evaluate all 10 equations
     for i = 2:9

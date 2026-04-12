@@ -1,0 +1,31 @@
+format compact; format shortG; clear; clc; clf; % 4-Node RLC Circuit
+V0 = 10;
+V1 = 0; V2 = 0; V3 = 0; V4 = 0;
+dV1 = 0;dV2 = 0;dV3 = 0;dV4 = 0;
+V = [];
+t = 0; dt = 0.01;
+a = 33.333; b = 66.667; c = a; d = 0.023;
+
+while(t < 3)
+    ddV1 = a*V0 - b*V1 + c*V2 - d*dV1;
+    ddV2 = a*V1 - b*V2 + c*V3 - d*dV2;
+    ddV3 = a*V2 - b*V3 + c*V4 - d*dV3;
+    ddV4 = a*V3 - c*V4 - d*dV4;
+    dV1 = dV1 + ddV1*dt;
+    dV2 = dV2 + ddV2*dt;
+    dV3 = dV3 + ddV3*dt;
+    dV4 = dV4 + ddV4*dt;
+    V1 = V1 + dV1*dt;
+    V2 = V2 + dV2*dt;
+    V3 = V3 + dV3*dt;
+    V4 = V4 + dV4*dt;
+    t = t + dt;
+    plot([0,1,2,3,4],[V0,V1,V2,V3,V4],'.-');
+    %pause(0.01);
+    V = [V ; [V0,V1,V2,V3,V4]];
+end
+pause(2)
+t = [1:length(V)]' * dt;
+plot(t,V);
+ylim([-5,25]); xlim([0,3]);
+xlabel('Time (seconds)'); ylabel('Volts');

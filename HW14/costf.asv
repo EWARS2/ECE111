@@ -1,0 +1,21 @@
+function [ J ] = costf( z )
+a = z(1);
+b = z(2);
+c = z(3);
+d = z(4);
+e = z(5);
+f = z(6);
+g = z(7);
+w = [0:0.01:10]' + 1e-6;
+s = j*w;
+g1 = 1 * (w < 2);
+g2 = (-0.15*w + 0.9).*(w>2).*(w<6);
+Gideal = g1 + g2;
+G = a ./ ( (s.^2 + b*s + c) .* (s.^2 + d*s + e ).*(s.^2 + f*s + g) );
+G = abs(G);
+E = abs(Gideal) - abs(G);
+J = sum(E .^ 2);
+plot(w,Gideal,w,G,'r');
+ylim([0,1.4]); xl
+pause(0.01);
+end
